@@ -39,7 +39,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<openMRSVersion>1.9.9</openMRSVersion>
         <allergyapiVersion>1.4</allergyapiVersion>
-        <uiframeworkVersion>3.9</uiframeworkVersion>
+        <uiframeworkVersion>3.8</uiframeworkVersion>
         <uicommonsVersion>2.1</uicommonsVersion>
 	</properties>
 

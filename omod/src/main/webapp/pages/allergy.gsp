@@ -1,5 +1,6 @@
 <%
-    ui.decorateWith("appui", "standardEmrPage")
+    ui.decorateWith("kenyaemr", "standardPage", [ patient: currentPatient ])
+    ui.includeJavascript("uicommons", "emr.js")
     ui.includeJavascript("uicommons", "angular.min.js")
     ui.includeJavascript("uicommons", "angular-ui/ui-bootstrap-tpls-0.11.2.min.js")
 	ui.includeJavascript("allergyui", "allergy.js")
@@ -9,6 +10,7 @@
     ui.includeJavascript("uicommons", "ngDialog/ngDialog.js")
     ui.includeJavascript("uicommons", "services/conceptSearchService.js")
     ui.includeJavascript("uicommons", "directives/coded-or-free-text-answer.js")
+    ui.includeCss("kenyaemr", "referenceapplication.css")
     ui.includeCss("uicommons", "ngDialog/ngDialog.min.css")
 
     ui.includeCss("allergyui", "allergy.css")
@@ -24,16 +26,10 @@
     ]
 %>
 <script type="text/javascript">
-    var breadcrumbs = [
-        { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' },
-        { label: "${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.familyName))) }, ${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.givenName))) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
-        { label: "${ ui.message("allergyui.allergies") }", link: '${ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl])}'},
-        { label: "${ title }" }
-    ];
+
     
 </script>
 
-${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
 
 ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
