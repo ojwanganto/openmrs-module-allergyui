@@ -128,7 +128,13 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 	    <div id="actions">
 	        <input type="submit" id="addAllergyBtn" class="confirm right" value="${ ui.message("coreapps.save") }" <% if(!isEdit){ %> ng-disabled="!canSave()" <% } %>/>
 	        <input type="button" class="cancel" value="${ ui.message("coreapps.cancel") }"
-	         onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl ]) }'" />
+                   onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl ]) }'" />
 	    </div>
 	</form>
 </div>
+
+<script type="text/javascript">
+    // manually bootstrap angular app, in case there are multiple angular apps on a page
+    angular.bootstrap('#allergy', ['allergyApp']);
+
+</script>
