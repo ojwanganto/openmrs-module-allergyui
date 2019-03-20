@@ -13,16 +13,22 @@ app.controller("allergyController", [ '$scope', function($scope) {
             if($scope.allergen && $scope.allergen != $scope.otherConceptId){
                 return true;
             }
+            console.log('$scope.otherCodedAllergen', $scope.otherCodedAllergen);
 
             return $scope.otherCodedAllergen;
         }
         else if ( $('#allergen-' + $scope.allergenType).is(':checked') ) {
-			return $scope.nonCodedAllergen;
+            console.log('$scope.nonCodedAllergen;', $scope.nonCodedAllergen);
+
+            return $scope.nonCodedAllergen;
 		}
-    	return $scope.allergen;
+        console.log('$scope.allergen', $scope.allergen);
+
+        return $scope.allergen;
     }
 
     $scope.$watch('allergenType', function(newValue, oldValue) {
+        console.log(' $scope.allergenType',  $scope.allergenType);
         // clear allergen any time they change the type
         $scope.allergen = null;
         $scope.nonCodedAllergen = null;
@@ -31,6 +37,8 @@ app.controller("allergyController", [ '$scope', function($scope) {
     });
 
     $scope.$watch('allergen', function(newValue, oldValue) {
+        console.log('newValue', newValue);
+        console.log('oldValue', oldValue);
         // if you had already specified allergen, then change it, clear other fields
         if (oldValue) {
             $('input.allergy-reaction').attr('checked', false);
